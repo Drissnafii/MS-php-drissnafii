@@ -18,6 +18,9 @@ require 'conn.php';
         <textarea name="message" id="message" rows="4" required></textarea><br><br>
 
         <input type="submit"name="s1"  value="Envoyer le commentaire">
+    </form> <br> <br>
+    <form action="Commentaires.php">
+        <input type="submit" name="showComments" value="Voir tou les commentaire">
     </form>
 </body>
 </html>
