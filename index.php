@@ -1,3 +1,6 @@
+<?
+require 'conn.php';
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -14,7 +17,7 @@
         <label for="message">Message :</label>
         <textarea name="message" id="message" rows="4" required></textarea><br><br>
 
-        <input type="submit" value="Envoyer le commentaire">
+        <input type="submit"name="s1"  value="Envoyer le commentaire">
     </form>
 </body>
 </html>

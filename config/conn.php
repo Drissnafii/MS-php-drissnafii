@@ -1,10 +1,12 @@
 <?php
-$servername = "localhost";
+$host = "localhost";
 $username = "root";
 $password = "";
+$db = "feedback_db";
 
 try {
-  $conn = new PDO("mysql:host=$servername;dbname=Feedback_db", $username, $password);
+  $dsn = "mysql:host=" .  $host. ";dbname=" . $db;
+  $pdo = new PDO($dsn, $username, $password);
   echo "Connected successfully";
 } catch(PDOException $e) {
   echo "Connection failed: " . $e->getMessage();
