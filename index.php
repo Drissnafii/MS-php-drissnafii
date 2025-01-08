@@ -19,8 +19,8 @@ require 'conn.php';
 
         <input type="submit"name="s1"  value="Envoyer le commentaire">
     </form> <br> <br>
-    <form action="Commentaires.php">
+    <!-- <form action="Commentaires.php">
         <input type="submit" name="showComments" value="Voir tou les commentaire">
-    </form>
+    </form> -->
 </body>
 </html>

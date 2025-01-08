@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/submit_feedback.php';
+require __DIR__ . '/Config/conn.php';
 
 if (isset($_POST["s1"])) {
     $name = $_POST["name"];
