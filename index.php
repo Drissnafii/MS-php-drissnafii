@@ -1,5 +1,13 @@
-<?
-require 'conn.php';
+<?php
+require_once "./models/User.php";
+if(isset($_POST["modifierbtn"])){
+
+    $id = $_POST["modifier"];
+    $fetch = new User;
+    print_r($Comment = $fetch->edit($id));
+    $name=$Comment[0]["nom"];
+    $message=$Comment[0]["message"]; 
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -12,10 +20,10 @@ require 'conn.php';
     <h1>Soumettre un Commentaire</h1>
     <form action="submit_feedback.php" method="POST">
         <label for="name">Nom :</label>
-        <input type="text" name="name" id="name" required><br><br>
+        <input type="text" name="name" id="name" value="<?php if(isset($_POST["modifierbtn"])){ echo $name;}?>" required><br><br>
 
         <label for="message">Message :</label>
-        <textarea name="message" id="message" rows="4" required></textarea><br><br>
+        <textarea name="message" id="message" rows="4"  required><?php if(isset($_POST["modifierbtn"])){ echo $message;}?></textarea><br><br>
 
         <input type="submit"name="s1"  value="Envoyer le commentaire">
     </form> <br> <br>

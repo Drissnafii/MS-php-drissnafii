@@ -1,10 +1,15 @@
 <?php 
-    require __DIR__ . '/config/conn.php';
+require_once "./models/User.php";
+$fetch = new User;
 
-    $stmt = $pdo->prepare("SELECT nom, message, horodatage from commentaires");
-    $stmt->execute();
-    $Comments = $stmt->fetchAll(PDO::FETCH_OBJ);
 
+if(isset($_POST["suprimerbtn"])){
+    $id = $_POST["suprimer"];
+    $fetch->delete($id);
+
+}
+
+$Comments = $fetch->read();
 
     if ($Comments > 0) {
 
@@ -33,11 +38,17 @@
                 <td>$Comment->message</td>  
                 <td>$Comment->horodatage</td> 
                 <td>
-                    <form method='post'>
-                        <input type='submit' value='modifier' name='modifier' action=modifier.php >
-                        <input type='submit' value='suprimer' name='suprimer' action=suprimer.php >
+                    <form method='POST'action='index.php'>
+                        <input type='hidden' value='$Comment->id' name='modifier'>
+                        <input type='submit' value='modifier' name='modifierbtn'>
+                    </form>
+
+                    <form method='POST'>
+                        <input type='submit' value='suprimer' name='suprimerbtn'>
+                        <input type='hidden' value='$Comment->id' name='suprimer'>
                     </form>
                 </td>
+
             </tr>";
             }
 
